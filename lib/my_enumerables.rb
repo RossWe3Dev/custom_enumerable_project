@@ -39,6 +39,17 @@ module Enumerable
     end
   end
 
+  def my_none?
+    # should check for no armgument and no block, 'pattern' and no block
+    
+    # relevant code only for the purpose of the exercise
+    self.my_each do |element|
+      return false if yield(element)
+    end
+    true
+  end
+
+
 end
 
 # define my_each to iterate trough arrays
