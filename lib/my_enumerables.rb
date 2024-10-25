@@ -89,4 +89,11 @@ class Array
     end
     return self
   end
+
+  def my_each_with_index
+    for i in 0...self.length do
+      yield(self[i], i)
+    end
+    return self
+  end
 end
