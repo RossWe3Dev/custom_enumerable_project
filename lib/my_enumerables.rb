@@ -7,12 +7,24 @@ module Enumerable
 
     arr
   end
+
+  def my_all?
+    return true if self.empty?
+    unless block_given?
+      # should also check for argument 'pattern' with no block given
+
+      return true unless self.include?(nil||false)
+      false
+    else
+      self.my_each do |element|
+        return false unless yield(element)
+      end
+      true
+    end
+  end
 end
 
-# You will first have to define my_each
-# on the Array class. Methods defined in
-# your enumerable module will have access
-# to this method
+# define my_each to iterate trough arrays
 class Array
   def my_each
     for element in self do
