@@ -16,6 +16,7 @@ module Enumerable
       return true unless self.include?(nil||false)
       false
     else
+      # relevant code for the purpose of the exercise
       self.my_each do |element|
         return false unless yield(element)
       end
@@ -32,6 +33,7 @@ module Enumerable
       return true unless self.my_all?(nil||false)
       false
     else
+      # relevant code for the purpose of the exercise
       self.my_each do |element|
         return true if yield(element)
       end
@@ -49,6 +51,17 @@ module Enumerable
     true
   end
 
+  def my_count
+    return self.length unless block_given?
+    # should check for 'object' matching
+    
+    # relevant code for the purpose of the exercise
+    count = 0
+    self.my_each do |element|
+      count +=1 if yield(element)
+    end
+    count
+  end
 
 end
 
