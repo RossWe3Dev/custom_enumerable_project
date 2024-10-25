@@ -72,6 +72,13 @@ module Enumerable
     result
   end
 
+  def my_inject(memo = 0)
+    self.my_each do |operand|
+      memo = yield(memo,operand)
+    end
+    memo
+  end
+
 end
 
 # define my_each to iterate trough arrays
