@@ -1,5 +1,12 @@
 module Enumerable
-  # Your code goes here
+  def my_select
+    arr = []
+    self.my_each do |element|
+      arr.push(element) if yield(element)
+    end
+
+    arr
+  end
 end
 
 # You will first have to define my_each
