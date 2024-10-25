@@ -1,11 +1,11 @@
 module Enumerable
   def my_select
-    arr = []
+    result = []
     self.my_each do |element|
-      arr.push(element) if yield(element)
+      result.push(element) if yield(element)
     end
 
-    arr
+    result
   end
 
   def my_all?
@@ -61,6 +61,15 @@ module Enumerable
       count +=1 if yield(element)
     end
     count
+  end
+
+  def my_map
+    result = []
+    self.my_each do |element|
+      result.push(yield(element))
+    end
+
+    result
   end
 
 end
